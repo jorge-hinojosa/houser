@@ -16,4 +16,8 @@ massive(CONNECTION_STRING)
 
 app.use(express.json());
 
+app.get("/api/houses", c.getAllHouses);
+app.post("/api/houses", c.addHouse);
+app.delete("/api/houses/:id", c.deleteHouse);
+
 app.listen(SERVER_PORT, () => console.log(`Y000 I'm on port ${SERVER_PORT}`));
