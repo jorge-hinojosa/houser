@@ -6,9 +6,18 @@ module.exports = {
   },
   addHouse: async (req, res) => {
     const db = req.app.get("db");
-    const { name, address, city, state, zip } = req.body;
+    const {
+      name,
+      address,
+      city,
+      state,
+      zip,
+      img_url,
+      mortgage,
+      rent
+    } = req.body;
     const house = await db
-      .add_house([name, address, city, state, zip])
+      .add_house([name, address, city, state, zip, img_url, mortgage, rent])
       .catch(err => console.log(err));
     res.sendStatus(200);
   },
@@ -19,5 +28,15 @@ module.exports = {
     db.delete_house(id)
       .then(() => res.sendStatus(200))
       .catch(err => console.log(err));
+  },
+  updateHouseMortgage: async (req, res) => {
+    const db = req.app.get("db");
+    const { params, query } = req;
+
+    const mortgage = db
+      .edit_house_mortgage([params.id, query.mortgage])
+      .catch(err => console.log(err));
+
+    res.sendStatus(200);
   }
 };

@@ -38,6 +38,9 @@ class Dashboard extends Component {
           city={house.city}
           state={house.state}
           zip={house.zip}
+          img={house.img_url}
+          mortgage={house.mortgage}
+          rent={house.rent}
           key={i}
           deleteHouse={this.deleteHouse}
         />
@@ -48,7 +51,7 @@ class Dashboard extends Component {
         Dashboard Page
         {viewHouses}
         <button>
-          <Link to={"/wizard"}>Add Property</Link>
+          <Link to={"/wizard/step1"}>Add Property</Link>
         </button>
       </div>
     );
