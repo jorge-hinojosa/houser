@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function House(props) {
   return (
     <div>
-      <img src={props.img} alt={props.name} />
+      <Link to={`/house/${props.id}`}>
+        <img src={props.img} alt={props.name} />
+      </Link>
       <p>
         Property Name: <span>{props.name}</span>
       </p>
